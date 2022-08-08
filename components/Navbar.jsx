@@ -38,14 +38,17 @@ const navigation = [
               </div>
             </div>
             <div className="ml-10 space-x-4">
-              
-              <a
-                href="#"
-                className="inline-block bg-neutral-800 py-2 px-4 border flex flex-row border-white border-0.5 rounded-md text-base font-medium text-white hover:bg-black"
+              <div className="inline-block hover:cursor-pointer bg-neutral-100 bg-opacity-50 py-2 px-4 border flex flex-row border-white border-0.5 rounded-md text-base font-medium text-white hover:bg-black">
+              <Image className="flex" src={plug} height={40} width={40}/>
+              <Link
+                href="buy"
+                className=""
               >
-                  <Image className="flex" src={plug} height={40} width={40}/>
-                <h1 className="my-auto text-xl ml-2 mr-2 item-center">Buy <span className="hidden sm:display">pixels</span></h1>
-              </a>
+                  
+                <h1 className="my-auto text-xl ml-2 mr-2 item-center">Buy a space<span className="hidden sm:display">pixels</span></h1>
+              </Link>
+              </div>
+            
             </div>
           </div>
           <div className="py-4 flex flex-wrap justify-center space-x-12  border border-0.5 border-white bg-gradient-to-r from-blue-600/50 via-pink-500/50 to-amber-400/50 rounded-lg ">

@@ -76,32 +76,21 @@ export default function Example() {
                 </div>
               ))}
             </dl>
-            <h2 className="leading-6 text-indigo-600 font-semibold tracking-wide uppercase mt-8">TERMS & CONDITIONS</h2>
-                <ul role="list ">
-                  <li>Quis elit egestas venenatis mattis dignissim.</li>
-                  <li>Cras cras lobortis vitae vivamus ultricies facilisis tempus.</li>
-                  <li>Orci in sit morbi dignissim metus diam arcu pretium.</li>
-                </ul>
-                <p>
-                  Rhoncus nisl, libero egestas diam fermentum dui. At quis tincidunt vel ultricies. Vulputate aliquet
-                  velit faucibus semper. Pellentesque in venenatis vestibulum consectetur nibh id. In id ut tempus
-                  egestas. Enim sit aliquam nec, a. Morbi enim fermentum lacus in. Viverra.
-                </p>
-                <h3>How we’re different</h3>
-                <p>
-                  Tincidunt integer commodo, cursus etiam aliquam neque, et. Consectetur pretium in volutpat, diam.
-                  Montes, magna cursus nulla feugiat dignissim id lobortis amet. Laoreet sem est phasellus eu proin massa,
-                  lectus. Diam rutrum posuere donec ultricies non morbi. Mi a platea auctor mi.
-                </p>
-                <p>
-                  Mauris ullamcorper imperdiet nec egestas mi quis quam ante vulputate. Vel faucibus adipiscing lacus,
-                  eget. Nunc fermentum id tellus donec. Ut metus odio sit sit varius non nunc orci. Eu, mi neque, ornare
-                  suspendisse amet, nibh. Facilisi volutpat lectus id sapien dis mauris rhoncus. Est rhoncus, interdum
-                  imperdiet ac eros, diam mauris, tortor. Risus id sit molestie magna.
-                </p>
+            
               </div>
             </div>
           </div>
+        </div>
+        <div className="max-w-7xl mx-auto py-4">
+        <h2 className="leading-6 text-indigo-600 font-semibold tracking-wide uppercase mt-8">TERMS & CONDITIONS</h2>
+                <ul role="list ">
+                  <li className="mt-4 text-neutral-400">ICP Homepage is timeless. Once a block is registered it will never be edited.</li>
+                  <li className="mt-4 text-neutral-400">Every participant wallet will receive an NFT of the final homepage, once it is finished - this will be tradable on Entrepot.</li>
+                  <li className="mt-4 text-neutral-400">To contact the ICP Homepage, please visit our Twitter account @ICPHomepage</li>
+                </ul>
+                <p className="mt-4 text-neutral-400">
+                  The ICP Homepage team does not take responsibility for errors made in the pixel grid selection process. If you wish to connect multiple grids together, that is your choice - but once a pixel grid is places on the ICP Homepage, it cannot be modified to it&apos;s placing changed. Anyone is welcome to submit to the ICP Homepage, and no exceptions will be made to pricing. This means no discounts, promotional freebies or priority will be given. The Homepage is entirely built by the community.
+              </p>
         </div>
       </div>
     )
