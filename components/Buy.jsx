@@ -18,6 +18,7 @@ import { useState } from 'react'
 import { CheckIcon, ClockIcon, QuestionMarkCircleIcon, XIcon } from '@heroicons/react/solid'
 import { RadioGroup } from '@headlessui/react'
 import Link from 'next/link'
+import Designer from './Designer'
 
 const blocks = [
     {
@@ -118,6 +119,7 @@ export default function Example() {
                   </div>
                 </RadioGroup>
               </div>
+              <Designer size={40}/>
             
           </section>
 
