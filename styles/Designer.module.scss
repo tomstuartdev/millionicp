@@ -1,6 +1,6 @@
 .pixel {
-  width: 15px;
-  height: 15px;
+  width: 0.8rem;
+  height: 0.8rem;
   margin: 0 3px 3px 0;
   border-radius: 3px;
 }
@@ -50,14 +50,9 @@
 
 .importHolder::before {
   content: 'Select a File';
-    cursor: pointer;
-    line-height: 2.25rem;
-    padding: 0 1rem;
-    cursor: pointer;
-    display: block;
-    position: absolute;
-    pointer-events: none;
-    font-size: 1rem;
+  cursor: pointer;
+  display: block;
+  position: absolute;
 }
 
 .selectFile {
@@ -65,11 +60,9 @@
   background: transparent;
   text-transform: initial;
   width: 9rem;
-  color: rgb(15 19 22);
-  height: 2.5rem;
   cursor: pointer;
   opacity: 0;
-  padding: 0;
+  width: 90px;
 }
 
 .imageCanvas {

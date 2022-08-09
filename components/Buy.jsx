@@ -20,30 +20,6 @@ import { RadioGroup } from '@headlessui/react'
 import Link from 'next/link'
 import Designer from './Designer'
 
-const blocks = [
-    {
-        name: '10x10',
-        description: 'Perfect for fans.',
-        price: 10,
-    },
-    /* {
-        name: '20x20',
-        description: 'Perfect for fans.',
-        price: 40,
-    },
-    {
-        name: '40x40',
-        description: 'Perfect for fans.',
-        price: 160,
-    },
-    {
-        name: '100x100',
-        description: 'Perfect for fans.',
-        price: 1000,
-    }, */
-    
-]
-
 const product = {
     name: 'Everyday Ruck Snack',
     href: '#',
@@ -57,10 +33,10 @@ const product = {
       { id: 2, name: 'Bags', href: '#' },
     ],
     sizes: [
-      { name: '10x10', description: 'Perfect for a reasonable amount of snacks.', price:10},
-      { name: '20x20', description: 'Enough room for a serious amount of snacks.', price: 40 },
-      { name: '40x40', description: 'Enough room for a serious amount of snacks.', price: 160 },
-      { name: '100x100', description: 'Enough room for a serious amount of snacks.', price:1000 },
+      { name: '10x10', size: 10, description: 'Perfect for a reasonable amount of snacks.', price:10,},
+      { name: '20x20', size: 20, description: 'Enough room for a serious amount of snacks.', price: 40 },
+      { name: '40x40', size: 40,description: 'Enough room for a serious amount of snacks.', price: 160 },
+      { name: '100x100', size: 100, description: 'Enough room for a serious amount of snacks.', price:1000 },
     ],
   }
 
@@ -69,7 +45,8 @@ const product = {
   }
 
 export default function Example() {
-    const [selectedSize, setSelectedSize] = useState(product.sizes[0])
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0])
+  
   return (
     <div className="bg-black">
       <div className="max-w-2xl mx-auto pt-8 pb-72 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -84,7 +61,7 @@ export default function Example() {
                 <RadioGroup value={selectedSize} onChange={setSelectedSize}>
                   <RadioGroup.Label className="block text-sm font-medium text-slate-200">1. Select a block size</RadioGroup.Label>
                   <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-4">
-                    {blocks.map((block) => (
+                    {product.sizes.map((block) => (
                       <RadioGroup.Option
                         as="div"
                         key={block.name}
@@ -119,8 +96,6 @@ export default function Example() {
                   </div>
                 </RadioGroup>
               </div>
-              <Designer size={40}/>
-            
           </section>
 
           {/* Order summary */}
@@ -136,11 +111,10 @@ export default function Example() {
               Checkout
             </h2>
             <dl className="mt-6 space-y-4">
-            {blocks.map((block) => (
-                <div key={block}>
+                <div key={selectedSize}>
               <div className="flex items-center mb-2 justify-between">
                 <dt className="text-xl text-neutral-200">Product</dt>
-                <dd className="text-xl font-light text-white">{block.name}</dd>
+                <dd className="text-xl font-light text-white">{selectedSize.name}</dd>
               </div>
               <div className="border-t border-gray-500 pt-4 mb-2 flex items-center justify-between">
                 <dt className="flex items-center text-xl text-neutral-200">
@@ -150,7 +124,7 @@ export default function Example() {
                     <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
                   </a> */}
                 </dt>
-                <dd className="text-xl font-light text-white">{block.price} ICP</dd>
+                <dd className="text-xl font-light text-white">{selectedSize.price} ICP</dd>
               </div>
               {/* <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
                 <dt className="flex text-sm text-gray-600">
@@ -164,10 +138,9 @@ export default function Example() {
               </div> */}
               <div className="border-t border-gray-500 pt-4 flex items-center justify-between">
                 <dt className="font-semibold text-2xl text-neutral-200">Order total</dt>
-                <dd className="font-semibold text-2xl text-white">{block.price} ICP</dd>
+                <dd className="font-semibold text-2xl text-white">{selectedSize.price} ICP</dd>
               </div>
               </div>
-              ))}
             </dl>
 
             <div className="mt-6">
@@ -180,10 +153,12 @@ export default function Example() {
                 
               </button>
             </div>
-            
           </section>
-          
         </form>
+
+        <div className='mt-10'>
+          <Designer size={selectedSize.size}/>
+        </div>
       </div>
     </div>
   )

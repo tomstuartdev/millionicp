@@ -95,23 +95,21 @@ const Designer = ({ size }) => {
     reader.onload = (async (file) => {
       if (!WHITELISTED_FILETYPES.includes(file?.type)) return
 
-      const bitmap = await createImageBitmap(file);
-      const canvas = canvasRef.current;
+      const bitmap = await createImageBitmap(file)
+      const canvas = canvasRef.current
 
-      console.log(bitmap)
+      canvas.width = bitmap.width
+      canvas.height = bitmap.height
+      const ctx = canvas.getContext("2d")
 
-      canvas.width = bitmap.width;
-      canvas.height = bitmap.height;
-      const ctx = canvas.getContext("2d");
+      ctx.clearRect(0, 0, 9999, 9999)
 
-      ctx.clearRect(0, 0, 9999, 9999);
-
-      ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+      ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
       let constructPixelData = getCleanMatrix(size)
 
       for(let i = 0; i < size; ++i) {
         for(let j = 0; j < size; ++j) {
-            let pixelData = canvas.getContext('2d').getImageData(i, j, 1, 1).data;
+            let pixelData = canvas.getContext('2d').getImageData(i, j, 1, 1).data
             if(pixelData[3] !== 0) {
               constructPixelData[i][j] = `rgb(${pixelData[0]} ${pixelData[1]} ${pixelData[2]})`
             }
@@ -133,7 +131,7 @@ const Designer = ({ size }) => {
   )
 
   const renderColorPicker = () => (
-    <div className={styles.colorRow}>
+    <div className={classNames(styles.colorRow, 'mt-5 mb-5')}>
       {FIXED_COLORS.map(color => (
         <div style={{ backgroundColor: color }} className={classNames(styles.colorVariant, { [styles.selectedColor]: selectedColor === color })} onClick={() => setSelectedColor(color)}></div>
       ))}
