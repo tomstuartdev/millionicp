@@ -96,22 +96,36 @@ const Designer = ({ size }) => {
       if (!WHITELISTED_FILETYPES.includes(file?.type)) return
 
       const bitmap = await createImageBitmap(file)
-      const canvas = canvasRef.current
 
-      canvas.width = bitmap.width
-      canvas.height = bitmap.height
+      const resizeRatio = size / bitmap.width
+      const finalWidth = parseInt(bitmap.width * resizeRatio)
+      const finalHeight = parseInt(bitmap.height * resizeRatio)
+
+      const canvas = canvasRef.current
+      canvas.width = finalWidth
+      canvas.height = finalHeight
+
+      const resizedBitmap = await createImageBitmap(file, {
+        premultiplyAlpha: 'none',
+        colorSpaceConversion: 'none',
+        resizeWidth: finalWidth,
+        resizeHeight: finalHeight,
+        resizeQuality: "pixelated"
+      })
+      
+
       const ctx = canvas.getContext("2d")
 
       ctx.clearRect(0, 0, 9999, 9999)
 
-      ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height)
+      ctx.drawImage(resizedBitmap, 0, 0, canvas.width, canvas.height)
       let constructPixelData = getCleanMatrix(size)
 
       for(let i = 0; i < size; ++i) {
         for(let j = 0; j < size; ++j) {
             let pixelData = canvas.getContext('2d').getImageData(i, j, 1, 1).data
             if(pixelData[3] !== 0) {
-              constructPixelData[i][j] = `rgb(${pixelData[0]} ${pixelData[1]} ${pixelData[2]})`
+              constructPixelData[j][i] = `rgb(${pixelData[0]} ${pixelData[1]} ${pixelData[2]})`
             }
         }
       }
