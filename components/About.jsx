@@ -29,7 +29,7 @@ const transferFeatures = [
     id: 2,
     name: '1 pixel = 0.1 ICP',
     description:
-      'There are three block tiers avaiable: 10x10 (10 ICP) 20x20 (40 ICP) and 40x40 (160 ICP).',
+      'There are four block tiers avaiable: 10x10 (10 ICP) 20x20 (40 ICP) 40x40 (160 ICP) and 100x100 (1000 ICP).',
     icon: ColorSwatchIcon,
   },
   {
