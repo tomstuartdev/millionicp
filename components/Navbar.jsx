@@ -41,7 +41,7 @@ const navigation = [
               <div className="inline-block hover:cursor-pointer bg-neutral-100 bg-opacity-50 py-2 px-4 border flex flex-row border-white border-0.5 rounded-md text-base font-medium text-white hover:bg-black">
               <Image className="flex" src={plug} height={40} width={40}/>
               <Link
-                href="buy"
+                href="buytwo"
                 className=""
               >
                   

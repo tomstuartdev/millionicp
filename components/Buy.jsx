@@ -56,109 +56,24 @@ export default function Example() {
             <h2 id="cart-heading" className="sr-only">
               Design your block
             </h2>
-            <div className="sm:flex sm:justify-between">
-                {/* Size selector */}
-                <RadioGroup value={selectedSize} onChange={setSelectedSize}>
-                  <RadioGroup.Label className="block text-sm font-medium text-slate-200">1. Select a block size</RadioGroup.Label>
-                  <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-4">
-                    {product.sizes.map((block) => (
-                      <RadioGroup.Option
-                        as="div"
-                        key={block.name}
-                        value={block}
-                        className={({ active }) =>
-                          classNames(
-                            active ? 'ring-2 ring-indigo-500' : '',
-                            'relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none'
-                          )
-                        }
-                      >
-                        {({ active, checked }) => (
-                          <>
-                            <RadioGroup.Label as="p" className="text-2xl font-display font-semibold text-white">
-                              {block.name}
-                            </RadioGroup.Label>
-                            <RadioGroup.Description as="p" className="mt-1 text-sm text-gray-500">
-                              {block.description}
-                            </RadioGroup.Description>
-                            <div
-                              className={classNames(
-                                active ? 'border' : 'border-2',
-                                checked ? 'border-indigo-500' : 'border-transparent',
-                                'absolute -inset-px rounded-lg pointer-events-none'
-                              )}
-                              aria-hidden="true"
-                            />
-                          </>
-                        )}
-                      </RadioGroup.Option>
-                    ))}
-                  </div>
-                </RadioGroup>
-              </div>
           </section>
-
           {/* Order summary */}
           
-          <section
-          
-            aria-labelledby="summary-heading"
-            className="mt-16 bg-white bg-opacity-20 rounded-lg px-4 py-6 sm:p-6 lg:p-8 lg:mt-0 lg:col-span-5"
-            
-          >
-              
-            <h2 id="summary-heading" className="text-2xl font-medium text-white">
-              Checkout
-            </h2>
-            <dl className="mt-6 space-y-4">
-                <div key={selectedSize}>
-              <div className="flex items-center mb-2 justify-between">
-                <dt className="text-xl text-neutral-200">Product</dt>
-                <dd className="text-xl font-light text-white">{selectedSize.name}</dd>
-              </div>
-              <div className="border-t border-gray-500 pt-4 mb-2 flex items-center justify-between">
-                <dt className="flex items-center text-xl text-neutral-200">
-                  <span>Price</span>
-                  {/* <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Learn more about how shipping is calculated</span>
-                    <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
-                  </a> */}
-                </dt>
-                <dd className="text-xl font-light text-white">{selectedSize.price} ICP</dd>
-              </div>
-              {/* <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
-                <dt className="flex text-sm text-gray-600">
-                  <span>Tax estimate</span>
-                  {/* <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Learn more about how tax is calculated</span>
-                    <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
-                  </a> 
-                </dt>
-                <dd className="text-sm font-medium text-gray-900">$8.32</dd>
-              </div> */}
-              <div className="border-t border-gray-500 pt-4 flex items-center justify-between">
-                <dt className="font-semibold text-2xl text-neutral-200">Order total</dt>
-                <dd className="font-semibold text-2xl text-white">{selectedSize.price} ICP</dd>
-              </div>
-              </div>
-            </dl>
-
-            <div className="mt-6">
-              <button
-                type="submit"
-                
-                className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
-              >
-                  <Link href='place'>Buy block</Link>
-                
-              </button>
-            </div>
-          </section>
         </form>
 
         <div className='mt-10'>
           <Designer size={selectedSize.size}/>
         </div>
+        <div className="mt-12">
+              <button
+                type="submit"
+                
+                className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+              >
+                  <Link href='buy'>Confirm block and deploy to ICP Homepage</Link>
+                
+              </button>
+            </div>
       </div>
     </div>
   )
