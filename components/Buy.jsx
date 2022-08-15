@@ -33,10 +33,10 @@ const product = {
       { id: 2, name: 'Bags', href: '#' },
     ],
     sizes: [
-      { name: '10x10', size: 10, description: 'Enough room for a small image.', price:10,},
-      { name: '20x20', size: 20, description: 'Enough room for your logo.', price: 40 },
-      { name: '40x40', size: 40,description: 'Enough room for an advert.', price: 160 },
-      { name: '100x100', size: 100, description: 'Enough room for a masterpiece', price:1000 },
+      { name: '10x10', size: 10, description: 'Perfect for a reasonable amount of snacks.', price:10,},
+      { name: '20x20', size: 20, description: 'Enough room for a serious amount of snacks.', price: 40 },
+      { name: '40x40', size: 40,description: 'Enough room for a serious amount of snacks.', price: 160 },
+      { name: '100x100', size: 100, description: 'Enough room for a serious amount of snacks.', price:1000 },
     ],
   }
 
@@ -48,118 +48,32 @@ export default function Example() {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0])
   
   return (
-    <div className="bg-black font-abd">
-      <div className="max-w-2xl flex flex-col mx-auto pt-8 pb-72 px-4 sm:px-6 lg:max-w-5xl lg:px-8">
-        <h1 className="text-3xl font-extrabold tracking-tight font-abd text-center text-white sm:text-5xl">Select your block</h1>
+    <div className="bg-black">
+      <div className="max-w-2xl mx-auto pt-8 pb-72 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+        <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">Design your block</h1>
         <form className="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
-          <section aria-labelledby="cart-heading" className="lg:col-span-12">
+          <section aria-labelledby="cart-heading" className="lg:col-span-7">
             <h2 id="cart-heading" className="sr-only">
-              Select your block
+              Design your block
             </h2>
-            <div className="sm:flex sm:justify-between">
-                {/* Size selector */}
-                <RadioGroup value={selectedSize} onChange={setSelectedSize}>
-                  <RadioGroup.Label className="block text-lg font-medium text-slate-200">1. Select a block size</RadioGroup.Label>
-                  <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-4">
-                    {product.sizes.map((block) => (
-                      <RadioGroup.Option
-                        as="div"
-                        key={block.name}
-                        value={block}
-                        className={({ active }) =>
-                          classNames(
-                            active ? 'ring-2 ring-orange-500' : '',
-                            'relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none'
-                          )
-                        }
-                      >
-                        {({ active, checked }) => (
-                          <>
-                            <RadioGroup.Label as="p" className={classNames(checked ? "text-4xl font-display font-semibold text-orange-400" : "text-4xl font-display font-semibold text-white")}>
-                              {block.name}
-                            </RadioGroup.Label>
-                            <RadioGroup.Description as="p" className="mt-1 text-sm text-gray-500">
-                              {block.description}
-                            </RadioGroup.Description>
-                            <div
-                              className={classNames(
-                                active ? 'border' : 'border-2',
-                                checked ? 'border-orange-400' : 'border-transparent',
-                                'absolute -inset-px rounded-lg pointer-events-none'
-                              )}
-                              aria-hidden="true"
-                            />
-                          </>
-                        )}
-                      </RadioGroup.Option>
-                    ))}
-                  </div>
-                </RadioGroup>
-              </div>
           </section>
-
           {/* Order summary */}
           
-          <section
-          
-            aria-labelledby="summary-heading"
-            className="mt-20 bg-black bg-opacity-20  rounded-lg  lg:mt-8 lg:col-span-12"
-            
-          >
-              
-            <h2 id="summary-heading" className="block text-lg font-medium text-slate-200">
-              2. CONFIRM YOUR SELECTION
-            </h2>
-            <dl className="mt-6 space-y-4">
-                <div key={selectedSize}>
-              <div className="flex items-center mb-2 justify-between">
-                <dt className="text-xl text-neutral-200">Product</dt>
-                <dd className="text-xl font-light text-white">{selectedSize.name}</dd>
-              </div>
-              <div className="border-t border-gray-500 pt-4 mb-2 flex items-center justify-between">
-                <dt className="flex items-center text-xl text-neutral-200">
-                  <span>Price</span>
-                  {/* <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Learn more about how shipping is calculated</span>
-                    <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
-                  </a> */}
-                </dt>
-                <dd className="text-xl font-light text-white">{selectedSize.price} ICP</dd>
-              </div>
-              {/* <div className="border-t border-gray-200 pt-4 flex items-center justify-between">
-                <dt className="flex text-sm text-gray-600">
-                  <span>Tax estimate</span>
-                  {/* <a href="#" className="ml-2 flex-shrink-0 text-gray-400 hover:text-gray-500">
-                    <span className="sr-only">Learn more about how tax is calculated</span>
-                    <QuestionMarkCircleIcon className="h-5 w-5" aria-hidden="true" />
-                  </a> 
-                </dt>
-                <dd className="text-sm font-medium text-gray-900">$8.32</dd>
-              </div> */}
-              <div className="border-t border-gray-500 pt-4 flex items-center justify-between">
-                <dt className="font-semibold text-2xl text-neutral-200">Order total</dt>
-                <dd className="font-semibold text-2xl text-white">{selectedSize.price} ICP</dd>
-              </div>
-              </div>
-            </dl>
+        </form>
 
-            <div className="mt-6">
+        <div className='mt-10'>
+          <Designer size={selectedSize.size}/>
+        </div>
+        <div className="mt-12">
               <button
                 type="submit"
                 
-                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-xl font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
               >
-                  <Link href='place'>CONFIRM </Link>
+                  <Link href='buy'>Confirm block and deploy to ICP Homepage</Link>
                 
               </button>
             </div>
-          </section>
-  
-        </form>
-
-       {/*  <div className='mt-10'>
-          <Designer size={selectedSize.size}/>
-        </div> */}
       </div>
     </div>
   )
