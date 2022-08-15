@@ -33,10 +33,10 @@ const product = {
       { id: 2, name: 'Bags', href: '#' },
     ],
     sizes: [
-      { name: '10x10', size: 10, description: 'Perfect for a reasonable amount of snacks.', price:10,},
-      { name: '20x20', size: 20, description: 'Enough room for a serious amount of snacks.', price: 40 },
-      { name: '40x40', size: 40,description: 'Enough room for a serious amount of snacks.', price: 160 },
-      { name: '100x100', size: 100, description: 'Enough room for a serious amount of snacks.', price:1000 },
+      { name: '10x10', size: 10, description: 'Enough room for a small image.', price:10,},
+      { name: '20x20', size: 20, description: 'Enough room for your logo.', price: 40 },
+      { name: '40x40', size: 40,description: 'Enough room for an advert.', price: 160 },
+      { name: '100x100', size: 100, description: 'Enough room for a masterpiece', price:1000 },
     ],
   }
 
@@ -48,18 +48,18 @@ export default function Example() {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0])
   
   return (
-    <div className="bg-black">
-      <div className="max-w-2xl mx-auto pt-8 pb-72 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">Design your block</h1>
+    <div className="bg-black font-abd">
+      <div className="max-w-2xl flex flex-col mx-auto pt-8 pb-72 px-4 sm:px-6 lg:max-w-5xl lg:px-8">
+        <h1 className="text-3xl font-extrabold tracking-tight font-abd text-center text-white sm:text-5xl">Select your block</h1>
         <form className="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
-          <section aria-labelledby="cart-heading" className="lg:col-span-7">
+          <section aria-labelledby="cart-heading" className="lg:col-span-12">
             <h2 id="cart-heading" className="sr-only">
-              Design your block
+              Select your block
             </h2>
             <div className="sm:flex sm:justify-between">
                 {/* Size selector */}
                 <RadioGroup value={selectedSize} onChange={setSelectedSize}>
-                  <RadioGroup.Label className="block text-sm font-medium text-slate-200">1. Select a block size</RadioGroup.Label>
+                  <RadioGroup.Label className="block text-lg font-medium text-slate-200">1. Select a block size</RadioGroup.Label>
                   <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-4">
                     {product.sizes.map((block) => (
                       <RadioGroup.Option
@@ -68,14 +68,14 @@ export default function Example() {
                         value={block}
                         className={({ active }) =>
                           classNames(
-                            active ? 'ring-2 ring-indigo-500' : '',
+                            active ? 'ring-2 ring-orange-500' : '',
                             'relative block border border-gray-300 rounded-lg p-4 cursor-pointer focus:outline-none'
                           )
                         }
                       >
                         {({ active, checked }) => (
                           <>
-                            <RadioGroup.Label as="p" className="text-2xl font-display font-semibold text-white">
+                            <RadioGroup.Label as="p" className={classNames(checked ? "text-4xl font-display font-semibold text-orange-400" : "text-4xl font-display font-semibold text-white")}>
                               {block.name}
                             </RadioGroup.Label>
                             <RadioGroup.Description as="p" className="mt-1 text-sm text-gray-500">
@@ -84,7 +84,7 @@ export default function Example() {
                             <div
                               className={classNames(
                                 active ? 'border' : 'border-2',
-                                checked ? 'border-indigo-500' : 'border-transparent',
+                                checked ? 'border-orange-400' : 'border-transparent',
                                 'absolute -inset-px rounded-lg pointer-events-none'
                               )}
                               aria-hidden="true"
@@ -103,12 +103,12 @@ export default function Example() {
           <section
           
             aria-labelledby="summary-heading"
-            className="mt-16 bg-white bg-opacity-20 rounded-lg px-4 py-6 sm:p-6 lg:p-8 lg:mt-0 lg:col-span-5"
+            className="mt-20 bg-black bg-opacity-20  rounded-lg  lg:mt-8 lg:col-span-12"
             
           >
               
-            <h2 id="summary-heading" className="text-2xl font-medium text-white">
-              Checkout
+            <h2 id="summary-heading" className="block text-lg font-medium text-slate-200">
+              2. CONFIRM YOUR SELECTION
             </h2>
             <dl className="mt-6 space-y-4">
                 <div key={selectedSize}>
@@ -147,18 +147,19 @@ export default function Example() {
               <button
                 type="submit"
                 
-                className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-xl font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
               >
-                  <Link href='place'>Buy block</Link>
+                  <Link href='place'>CONFIRM </Link>
                 
               </button>
             </div>
           </section>
+  
         </form>
 
-        <div className='mt-10'>
+       {/*  <div className='mt-10'>
           <Designer size={selectedSize.size}/>
-        </div>
+        </div> */}
       </div>
     </div>
   )

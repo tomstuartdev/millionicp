@@ -42,11 +42,11 @@ const transferFeatures = [
 ]
 export default function Example() {
     return (
-      <div className="relative bg-black">
+      <div className="relative  bg-black font-abd">
         <div className="lg:absolute lg:inset-0">
           <div className="lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2">
             <img
-              className="h-56 w-full object-cover lg:absolute lg:h-3/5"
+              className="h-full w-full object-cover lg:absolute lg:h-3/5"
               src="https://images.unsplash.com/photo-1638414154639-0fbc5bceb80f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
               alt=""
             />
@@ -56,10 +56,10 @@ export default function Example() {
           <div className="lg:col-start-2 lg:pl-8">
             <div className="text-base max-w-prose mx-auto lg:max-w-lg lg:ml-auto lg:mr-0">
               <h2 className="leading-6 text-blue-400 font-semibold tracking-wide uppercase">Buy Pixels</h2>
-              <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-amber-400 sm:text-8xl">
+              <h3 className="mt-2 text-6xl  font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-amber-400 sm:text-8xl">
                 A piece of ICP history.
               </h3>
-              <p className="mt-8 text-lg text-gray-500">
+              <p className="mt-8 text-lg text-neutral-200">
                 Remember the Million Dollar Homepage? We&apos;re bringing it back and making it better on the Internet Computer. Leave your mark on a timeless piece of community-generated digital art.
               </p>
               <div className="mt-5 prose prose-indigo text-gray-500">
@@ -67,12 +67,12 @@ export default function Example() {
               {transferFeatures.map((item) => (
                 <div key={item.id} className="relative">
                   <dt>
-                    <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-400 text-white">
+                    <div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-gradient-to-br from-blue-500 to-blue-400 text-white">
                       <item.icon className="h-6 w-6" aria-hidden="true" />
                     </div>
                     <p className="ml-16 text-2xl leading-6 font-medium text-blue-400">{item.name}</p>
                   </dt>
-                  <dd className="mt-2 ml-16 text-base text-gray-500">{item.description}</dd>
+                  <dd className="mt-2 ml-16 text-base text-neutral-200">{item.description}</dd>
                 </div>
               ))}
             </dl>
@@ -81,8 +81,8 @@ export default function Example() {
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto py-4">
-        <h2 className="leading-6 text-indigo-600 font-semibold tracking-wide uppercase mt-8">TERMS & CONDITIONS</h2>
+        <div className="max-w-7xl p-4 mx-auto py-4">
+        <h2 className="leading-6 text-white font-semibold tracking-wide text-2xl uppercase mt-8">TERMS & CONDITIONS</h2>
                 <ul role="list ">
                   <li className="mt-4 text-neutral-400">ICP Homepage is timeless. Once a block is registered it will never be edited.</li>
                   <li className="mt-4 text-neutral-400">Every participant wallet will receive an NFT of the final homepage, once it is finished - this will be tradable on Entrepot.</li>
