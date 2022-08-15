@@ -151,7 +151,7 @@ export default function Example() {
         <form className="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
           <section aria-labelledby="cart-heading" className="lg:col-span-7">
             <h2 id="cart-heading" className="sr-only">
-              Placw your Block
+              Place your Block
             </h2>
             <div className="pt-1 text-sm font-medium text-slate-200">2. Place your block on the ICP Homepage</div>
           <div className="mt-12">
@@ -160,7 +160,7 @@ export default function Example() {
                 
                 className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
               >
-                  <Link href='buy'>Continue to Checkout</Link>
+                  <Link href='buy'>Confirm placement and continue to Checkout</Link>
                 
               </button>
             </div>
