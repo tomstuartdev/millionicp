@@ -34,7 +34,8 @@ const Pixel = ({ paint, row, column, backgroundColor, mouseDown, setMouseDown })
   }
 
   return (
-    <div 
+    <div
+      key={`${row}:${column}`}
       style={{ backgroundColor: backgroundColor || '#191f2b' }}
       className={styles.pixel}
       onMouseDown={onMouseDown}
@@ -146,8 +147,8 @@ const Designer = ({ size }) => {
 
   const renderColorPicker = () => (
     <div className={classNames(styles.colorRow, 'mt-5 mb-5')}>
-      {FIXED_COLORS.map(color => (
-        <div style={{ backgroundColor: color }} className={classNames(styles.colorVariant, { [styles.selectedColor]: selectedColor === color })} onClick={() => setSelectedColor(color)}></div>
+      {FIXED_COLORS.map((color, index) => (
+        <div key={index} style={{ backgroundColor: color }} className={classNames(styles.colorVariant, { [styles.selectedColor]: selectedColor === color })} onClick={() => setSelectedColor(color)}></div>
       ))}
 
       <div className={styles.manualColorSelect}>
@@ -165,8 +166,8 @@ const Designer = ({ size }) => {
       <div className={styles.pixelBoard}>
         {rows.map(row => {
           return (
-            <div className={styles.row}>
-              {columns.map(col => <Pixel row={row} column={col} paint={paintPixel} backgroundColor={paintMatrix[row]?.[col]} mouseDown={mouseDown} setMouseDown={setMouseDown}/>)}
+            <div className={styles.row} key={row}>
+              {columns.map(col => <Pixel key={`${row}:${col}`} row={row} column={col} paint={paintPixel} backgroundColor={paintMatrix[row]?.[col]} mouseDown={mouseDown} setMouseDown={setMouseDown}/>)}
             </div>
           )
         })}
