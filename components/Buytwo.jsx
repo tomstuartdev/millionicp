@@ -146,28 +146,19 @@ export default function Example() {
             <div className="mt-6">
             </div>
           </section>
-          <div className="max-w-2xl mx-auto pt-8 pb-72 sm:px-1 lg:max-w-7xl">
-        <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">Place your Block</h1>
-        <form className="mt-12 lg:grid lg:grid-cols-12 lg:gap-x-12 lg:items-start xl:gap-x-16">
-          <section aria-labelledby="cart-heading" className="lg:col-span-7">
-            <h2 id="cart-heading" className="sr-only">
-              Place your Block
-            </h2>
-            <div className="pt-1 text-sm font-medium text-slate-200">2. Place your block on the ICP Homepage</div>
-          <div className="mt-12">
+          <div className="max-w-2xl mx-auto pt-8 pb-72 px-4 sm:px-1 lg:max-w-7xl lg:px-8">
+          <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">Place your block</h1>
+          <div className="block pt-8 text-sm font-medium text-slate-200">2. Place your block on the ICP Homepage</div>
+          </div>
+          <div className="mt-6">
               <button
                 type="submit"
                 
                 className="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
               >
-                  <Link href='buy'>Confirm placement and continue to Checkout</Link>
+                  <Link href='buy'>Continue to Checkout</Link>
                 
               </button>
-            </div>
-            </section>
-            </form>
-            </div>
-          <div className="mx-auto pt-8">
             </div>
         </form>
       </div>
